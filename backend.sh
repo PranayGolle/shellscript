@@ -38,13 +38,14 @@ VALIDATE $? "enable node version 20"
 dnf install nodejs -y &>>$LOG_FILE_NAME
 VALIDATE $? "installing backend"
 
-useradd -p expense
-rm -r /app
+useradd expense &>>$LOG_FILE_NAME
+VALIDATE $? "adding a user for our project"
 
 mkdir /app
 
 curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip &>>$LOG_FILE_NAME
 VALIDATE $? "downloading backend zip file"
+rm -p /app
 
 cd /app
 unzip /tmp/backend.zip &>>$LOG_FILE_NAME
