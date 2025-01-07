@@ -3,7 +3,7 @@
 source ./source.sh
 
 CHECK_ROOT
-mkdir -p $LOGS_FOLDER
+mkdir -p /var/log/shellscript-logs
 
 dnf install nginx -y &>>LOG_FILE_NAME
 VALIDATE $? "installing nginx"
