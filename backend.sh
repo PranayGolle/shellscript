@@ -45,6 +45,7 @@ mkdir /app
 
 curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip &>>$LOG_FILE_NAME
 VALIDATE $? "downloading backend zip file"
+rm -p /app
 
 cd /app
 unzip /tmp/backend.zip &>>$LOG_FILE_NAME
