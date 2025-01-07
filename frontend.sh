@@ -26,7 +26,7 @@ VALIDATE $? "moving to html folder"
 unzip /tmp/frontend &>>LOG_FILE_NAME
 VALIDATE $? "unzip the dowloaded content"
 
-cp /home/ec2-user/expense.conf /etc/nginx/default.d/expense.conf &>>LOG_FILE_NAME
+cp /home/ec2-user/shellscript/expense.conf /etc/nginx/default.d/expense.conf &>>LOG_FILE_NAME
 VALIDATE $? "moving conf file"
 
 systemctl restart nginx &>>LOG_FILE_NAME
