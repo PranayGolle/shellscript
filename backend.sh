@@ -38,8 +38,8 @@ VALIDATE $? "enable node version 20"
 dnf install nodejs -y &>>$LOG_FILE_NAME
 VALIDATE $? "installing backend"
 
-useradd -p expense
-rm -r /app
+useradd expense &>>$LOG_FILE_NAME
+VALIDATE $? "adding a user for our project"
 
 mkdir /app
 
