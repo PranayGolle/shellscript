@@ -15,8 +15,8 @@ VALIDATE $? "Starting Mysql Server"
 
 mysql -h mysql.pranayaws.site -u root -pExpenseApp@1 -e 'show databases;' &>>$LOG_FILE_NAME
 
-if [ $? -ne 0]
-then E
+if [ $? -ne 0 ]
+then
     echo "MySql Root password not set" &>>$LOG_FILE_NAME
     mysql_secure_installation --set-root-pass ExpenseApp@1
     VALIDATE $? "Setting root password"
