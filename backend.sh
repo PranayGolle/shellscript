@@ -42,7 +42,7 @@ cp /home/ec2-user/shellscript/backend.service /etc/systemd/system/backend.servic
 dnf install mysql -y &>>$LOG_FILE_NAME
 VALIDATE $? "installing sql client"
 
-mysql -h mysql.pranayaws.site -u root -pExpenseApp@1 < /app/schema/backend.sql &>>$LOG_FILE_NAME
+mysql -h mysql.pranayaws.site -uroot -pExpenseApp@1 < /app/schema/backend.sql
 VALIDATE $? "setting up schema and tables"
 
 systemctl daemon-reload &>>$LOG_FILE_NAME
