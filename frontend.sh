@@ -23,7 +23,7 @@ VALIDATE $? " dowloading latest updates"
 cd /usr/share/nginx/html &>>LOG_FILE_NAME
 VALIDATE $? "moving to html folder"
 
-unzip /tmp/frontend. &>>LOG_FILE_NAME
+unzip /tmp/frontend &>>LOG_FILE_NAME
 VALIDATE $? "unzip the dowloaded content"
 
 systemctl restart nginx &>>LOG_FILE_NAME
