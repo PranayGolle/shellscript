@@ -13,7 +13,7 @@ VALIDATE $? "enable node version 20"
 dnf install nodejs -y &>>$LOG_FILE_NAME
 VALIDATE $? "installing backend"
 
-id expense $>>$LOG_FILE_NAME
+id expense &>>$LOG_FILE_NAME
 if [ $? -ne 0 ]
 then
     useradd expense &>>$LOG_FILE_NAME
@@ -22,13 +22,15 @@ else
     echo -e "expense user already exists.. $Y SKIPPING $N"
 fi
 
-mkdir /app  &>>$LOG_FILE_NAME
+mkdir -p /app  &>>$LOG_FILE_NAME
 VALIDATE $? "creating app directory"
 
 curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip &>>$LOG_FILE_NAME
 VALIDATE $? "downloading backend zip file"
 
 cd /app
+rm -rf /app/*
+
 unzip /tmp/backend.zip &>>$LOG_FILE_NAME
 VALIDATE $? "unziping the backend file"
 
