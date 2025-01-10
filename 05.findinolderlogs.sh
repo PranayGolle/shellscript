@@ -8,4 +8,5 @@ echo "files to be deleted: $FILES_TO_DELETE"
 while read -r file
 do
     echo "deleting the files: $file"
-done
+    rm -rf $file
+done<<<FILE_TO_DELETE
