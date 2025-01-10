@@ -9,4 +9,4 @@ while read -r file
 do
     echo "deleting the files: $file"
     rm -rf $file
-done<<<FILE_TO_DELETE
+done <<< FILE_TO_DELETE
