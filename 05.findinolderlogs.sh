@@ -32,6 +32,6 @@ echo "files to be deleted: $FILES_TO_DELETE"
 
 while read -r logs;
 do
-    echo "deleting the files: $logs"
-    rm -rf $logs
+    echo "deleting the files:$logs"
+    rm -r $logs
 done <<< FILES_TO_DELETE
