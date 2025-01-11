@@ -43,11 +43,11 @@ then
     exit 1
 fi
 
-if [ ! -d $DESTINY ]
-then
-    echo -e "$DESTINY does not exit...please check"
-fi
-echo "Script started executing at: $TIMESTAMP" &>>$LOG_FILE_NAME
+#if [ ! -d $DESTINY ]
+#then
+#    echo -e "$DESTINY does not exit...please check"
+#fi
+#echo "Script started executing at: $TIMESTAMP" &>>$LOG_FILE_NAME
 
-FILES=$(find $SOURCE -name "*.log" -mtime $DAYS)
-    echo -e "files are : $FILES"
+#FILES=$(find $SOURCE -name "*.log" -mtime $DAYS)
+#   echo -e "files are : $FILES"
