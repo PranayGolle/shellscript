@@ -30,6 +30,7 @@ USAGE(){
     echo -e "$R USAGE:: $N sh 06.zipoldlogs.sh <SOURCE> <DESTINY> <DAYS (OPTIONAL)>
     exit 1
 }
+
 mkdir -p /home/ec2-user/shellscript-logs/
 
 if [ $# -lt 2 ]
