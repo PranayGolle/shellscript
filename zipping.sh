@@ -53,7 +53,6 @@ then
 fi
 
 FILES=$(find $SOURCE -name "*.log" -mtime +$DAYS)
-echo "files are found : $FILES"
 
 if [ -n "$FILES" ]
 then
