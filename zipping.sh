@@ -59,7 +59,7 @@ if [ -n "$FILES" ]
 then
     echo -e "files found and zipped all the files"
     ZIP_FILE=$("DESTINY/app-logs-$TIMESTAMP.zip")
-    (find $SOURCE -name "*.log" -mtime +$DAYS | zip -@ $ZIP_FILE)
+    (find $SOURCE -name "*.log" -mtime +$DAYS | zip -@$ZIP_FILE)
         if [ -f "$ZIP_FILE" ]
         then
             echo -e "sucessfully created zip file older than $DAYS"
