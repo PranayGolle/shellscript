@@ -70,7 +70,8 @@ then
                 echo "deleted file: $filepath"
             done <<< $FILES
         else
-            echo -e "$R ERROR :$N failed to create zip file"    
+            echo -e "$R ERROR :$N failed to create zip file"
+            exit 1  
         fi
 else
     echo -e "no files are found older than $DAYS"
