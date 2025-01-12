@@ -31,6 +31,8 @@ USAGE(){
     exit 1
 }
 
+echo "Script started executing at: $TIMESTAMP" &>>$LOG_FILE_NAME
+
 mkdir -p /home/ec2-user/shellscript-logs/
 
 if [ $# -lt 2 ]
@@ -49,4 +51,27 @@ then
     echo -e "$DESTINY does not exit...please check"
 fi
 
-echo "Script started executing at: $TIMESTAMP" &>>$LOG_FILE_NAME
+FILES=$(find $SOURCE -name "*.log" -mtime +$DAYS)
+echo -e "files are found : $FILES"
+
+if [ -n "$FILES" ]
+then
+    echo -e "files found and zipped all the files"
+    ZIP_FILE="DESTINY/app-logs-$TIMESTAMP.zip"
+    (find $SOURCE -NAME "*.log" -mtime +$DAYS | zip -@ $ZIP_FILE)
+        if [ -f "$ZIP_FILE"]
+        then
+            echo -e "sucessfully created zip file older than $DAYS"
+            while read -r filepath
+            do
+                echo "deleting the files:$filepath" &>>$LOG_FILE_NAME
+                rm -rf $filepath
+                echo "deleted file:$filepath"
+            done <<< $FILES
+        else
+            echo -e "$R ERROR :$N failed to create zip file"
+            exit1
+        fi
+else
+    echo -e "no files are found older than $DAYS"
+fi
