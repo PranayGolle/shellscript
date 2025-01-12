@@ -27,7 +27,7 @@ CHECK_ROOT(){
 }
 
 USAGE(){
-    echo -e "$R USAGE:: $N sh 06.zipoldlogs.sh <SOURCE> <DESTINY> <DAYS (OPTIONAL)>
+    echo -e "$R USAGE:: $N sh 06.zipoldlogs.sh <SOURCE> <DESTINY> <DAYS (OPTIONAL)>"
     exit 1
 }
 
