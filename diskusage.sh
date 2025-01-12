@@ -7,4 +7,4 @@ while read -r line
 do
     USAGE=$($DISK_USAGE | awk -F " " '{print $6F}')
     echo "Print disk usage: $USAGE"
-done
+done <<< $DISK_USAGE
