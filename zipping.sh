@@ -27,7 +27,7 @@ CHECK_ROOT(){
 }
 
 USAGE(){
-    echo -e "$R USAGE:: $N sh 06.zipoldlogs.sh <SOURCE> <DESTINY> <DAYS (OPTIONAL)>"
+    echo -e "$R USAGE:: $N sh zipping.sh <SOURCE> <DESTINY> <DAYS (OPTIONAL)>"
     exit 1
 }
 
@@ -49,17 +49,18 @@ fi
 if [ ! -d $DESTINY ]
 then
     echo -e "$DESTINY does not exit...please check"
+    exit 1
 fi
 
 FILES=$(find $SOURCE -name "*.log" -mtime +$DAYS)
-echo -e "files are found : $FILES"
+echo "files are found : $FILES"
 
 if [ -n "$FILES" ]
 then
     echo -e "files found and zipped all the files"
     ZIP_FILE="DESTINY/app-logs-$TIMESTAMP.zip"
     (find $SOURCE -NAME "*.log" -mtime +$DAYS | zip -@ $ZIP_FILE)
-        if [ -f "$ZIP_FILE"]
+        if [ -f "$ZIP_FILE" ]
         then
             echo -e "sucessfully created zip file older than $DAYS"
             while read -r filepath
