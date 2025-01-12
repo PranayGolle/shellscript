@@ -59,7 +59,7 @@ if [ -n "$FILES" ]
 then
     echo -e "files found and zipped all the files"
     ZIP_FILE="$DESTINY/app-logs-$TIMESTAMP.zip"
-    (find $SOURCE -name "*.log" -mtime +$DAYS | zip -@$ZIP_FILE)
+    (find $SOURCE -name "*.log" -mtime +$DAYS | zip -@ $ZIP_FILE)
         if [ -f "$ZIP_FILE" ]
         then
             echo -e "sucessfully created zip file older than $DAYS"
@@ -70,7 +70,7 @@ then
                 echo "deleted file: $filepath"
             done <<< $FILES
         else
-            echo -e "$R ERROR :$N failed to create zip file"
+            echo -e "$R ERROR : $N failed to create zip file"
             exit 1  
         fi
 else
